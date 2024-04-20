@@ -52,7 +52,7 @@ const useStyle = () => {
         width: -webkit-fill-available;
       }
       .risk-card-low {
-        background-color: green;
+        background-color: gray;
       }
       .risk-card-medium {
         background-color: orange;

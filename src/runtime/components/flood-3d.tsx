@@ -35,7 +35,7 @@ const getColor = (floodType: 'high' | 'medium' | 'low' | 'none'): string => {
     case 'medium':
       return 'orange'
     case 'low':
-      return 'green'
+      return 'gray'
     case 'none':
       return 'yellow'
     default:
