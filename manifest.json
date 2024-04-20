@@ -1,0 +1,25 @@
+{
+  "name": "flood-tool",
+  "label": "Flood Tool",
+  "type": "widget",
+  "version": "1.11.0",
+  "exbVersion": "1.14.0",
+  "author": "Esri R&D Center Beijing",
+  "description": "Flood Screening Tool.",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "dependency": "jimu-arcgis",
+  "publishMessages": [],
+  "messageActions": [],
+  "defaultSize": {
+    "width": 400,
+    "height": 600
+  },
+  "properties": {
+    "coverLayoutBackground": true,
+    "flipIcon": true
+  },
+  "translatedLocales": [
+    "en"
+  ]
+}

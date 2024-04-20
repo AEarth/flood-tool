@@ -1,0 +1,19 @@
+{
+    "name": "flood-tool",
+    "version": "1.0.0",
+    "description": "Flood Tool",
+    "main": "index.js",
+    "directories": {
+      "test": "tests"
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Abdellatif Boudaouch aboudaouch@geodecisions.com",
+    "license": "ISC",
+    "dependencies": {
+        "three-gltf-loader": "^1.111.0"
+    }
+  }
+  
+  

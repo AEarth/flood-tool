@@ -1,0 +1,292 @@
+{
+  "coordinateDecimal": 6,
+  "showLatLong": true,
+  "restEndPoints": [
+    {
+      "featureServer": "https://dsfmportal.dcr.virginia.gov/server/rest/services/Floodplains/Flood_Hazard_Layers/MapServer/1",
+      "buffer": 0,
+      "buffer_units": "feet",
+      "featureServiceId": "1",
+      "orderByFields": [
+        "OBJECTID DESC"
+      ],
+      "whereClause": "",
+      "resultRecordCount": 1,
+      "masterService": true
+    },
+    {
+      "featureServer": "https://dsfmportal.dcr.virginia.gov/server/rest/services/Floodplains/NFHL_Layers/MapServer/1",
+      "buffer": 0,
+      "buffer_units": "feet",
+      "featureServiceId": "2",
+      "orderByField": [
+        "OBJECTID DESC"
+      ],
+      "whereClause": "",
+      "resultRecordCount": 1,
+      "masterService": false
+    },
+    {
+      "featureServer": "https://dsfmportal.dcr.virginia.gov/server/rest/services/Floodplains/NFHL_Layers/MapServer/2",
+      "buffer": 0,
+      "buffer_units": "feet",
+      "featureServiceId": "3",
+      "orderByField": [
+        "OBJECTID DESC"
+      ],
+      "whereClause": "",
+      "resultRecordCount": 1,
+      "masterService": false
+    },
+    {
+      "featureServer": "https://dsfmportal.dcr.virginia.gov/server/rest/services/EnvironmentalRef/NHD_Flowlines/MapServer/1",
+      "buffer": 0,
+      "buffer_units": "feet",
+      "featureServiceId": "4",
+      "orderByField": [
+        "OBJECTID DESC"
+      ],
+      "whereClause": "",
+      "resultRecordCount": 1,
+      "masterService": false
+    },
+    {
+      "featureServer": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/4",
+      "buffer": 0,
+      "buffer_units": "feet",
+      "featureServiceId": "5",
+      "orderByField": [
+        "OBJECTID DESC"
+      ],
+      "whereClause": "",
+      "resultRecordCount": 1,
+      "masterService": false
+    },
+    {
+      "featureServer": "https://dsfmportal.dcr.virginia.gov/server/rest/services/Floodplains/BuildingFootprints_WSE/MapServer/0",
+      "buffer": 0,
+      "buffer_units": "feet",
+      "featureServiceId": "6",
+      "orderByField": [
+        "OBJECTID DESC"
+      ],
+      "whereClause": "",
+      "resultRecordCount": 1,
+      "masterService": false
+    },
+    {
+      "imageServer": "https://casdsis.dcr.virginia.gov/arcgis/rest/services/elevation/DEM_10m/ImageServer",
+      "featureServiceId": "7"
+    }
+  ],
+  "displaySections": [
+    {
+      "sectionLabel": "",
+      "displayType": "riskCard",
+      "riskCards": [
+        {
+          "featureServiceId": "1",
+          "indicatorField": "Legend",
+          "indicatorValues": [
+            "1% Annual Chance Flood Hazard"
+          ],
+          "cardType": "high",
+          "cardHeader": "Annual Flood Risk: 1%",
+          "cardDescription": "This Location is within the FEMA 100-year floodplain",
+          "linkLabel": "Learn More about Special flood Hazard Areas (SFHA's)",
+          "linkUrl": "https://www.fema.gov/glossary/flood-zones"
+        },
+        {
+          "featureServiceId": "1",
+          "indicatorField": "Legend",
+          "indicatorValues": [
+            "Area with Reduced Risk Due to Levee"
+          ],
+          "cardType": "low",
+          "cardHeader": "Annual Flood Risk: Reduced Risk",
+          "cardDescription": "This Location has a reduced flood risk due to a levee",
+          "linkLabel": "Learn More about Special flood Hazard Areas (SFHA's)",
+          "linkUrl": "https://www.fema.gov/glossary/flood-zones"
+        },
+        {
+          "featureServiceId": "1",
+          "indicatorField": "Legend",
+          "indicatorValues": [
+            "Area of Minimal Flood Hazard"
+          ],
+          "cardType": "low",
+          "cardHeader": "Annual Flood Risk: Minimal Risk",
+          "cardDescription": "This Location has minimal risk of flooding",
+          "linkLabel": "Learn More about Special flood Hazard Areas (SFHA's)",
+          "linkUrl": "https://www.fema.gov/glossary/flood-zones"
+        },
+        {
+          "featureServiceId": "1",
+          "indicatorField": "Legend",
+          "indicatorValues": [
+            "0.2% Annual Chance Flood Hazard"
+          ],
+          "cardType": "medium",
+          "cardHeader": "Annual Flood Risk: Medium Risk",
+          "cardDescription": "This Location falls between the FEMA 100-year and 500-year floodplains",
+          "linkLabel": "Learn More about Special flood Hazard Areas (SFHA's)",
+          "linkUrl": "https://www.fema.gov/glossary/flood-zones"
+        },
+        {
+          "featureServiceId": "1",
+          "indicatorField": "Legend",
+          "indicatorValues": [
+            "Regulatory Floodway"
+          ],
+          "cardType": "high",
+          "cardHeader": "Annual Flood Risk: High Risk",
+          "cardDescription": "This Location is within a regulatory floodway",
+          "linkLabel": "Learn More about Regulatory Floodways",
+          "linkUrl": "https://www.fema.gov/glossary/floodway"
+        },
+        {
+          "featureServiceId": "1",
+          "indicatorField": "Legend",
+          "indicatorValues": [
+            "Open Water"
+          ],
+          "cardType": "high",
+          "cardHeader": "Annual Flood Risk: Open Water",
+          "cardDescription": "This Location is located in open water",
+          "linkLabel": "Learn More about Special flood Hazard Areas (SFHA's)",
+          "linkUrl": "https://www.fema.gov/glossary/flood-zones"
+        },
+        {
+          "cardType": "none",
+          "featureServiceId": "1",
+          "indicatorField": "Legend",
+          "indicatorValues": [
+            "Area Not Included",
+            "Open Water"
+          ],
+          "cardHeader": "Annual Flood Risk: No Risk Information",
+          "cardDescription": "This Location does not have flood risk information",
+          "linkLabel": "Learn More about Special flood Hazard Areas (SFHA's)",
+          "linkUrl": "https://www.fema.gov/glossary/flood-zones"
+        }
+      ]
+    },
+    {
+      "sectionLabel": "Flood Map Info",
+      "displayType": "data",
+      "displayFields": [
+        {
+          "featureServiceId": "2",
+          "valueField": "FIRM_PAN",
+          "label": "FEMA's Flood Map",
+          "display": "linkReference",
+          "linkReference1Label": "View",
+          "linkReference1Url": "https://map1.msc.fema.gov/firm?id=<value>",
+          "linkReference2Label": "Download",
+          "linkReference2Url": "https://msc.fema.gov/portal/downloadProduct?productID=<value>",
+          "format": "normal"
+        },
+        {
+          "featureServiceId": "2",
+          "valueField": "EFF_DATE",
+          "label": "Map Effective Date",
+          "display": "keyValue",
+          "format": "date"
+        },
+        {
+          "featureServiceId": "2",
+          "staticValue": "https://www.dcr.virginia.gov/dam-safety-and-floodplains/floodplain-directory",
+          "label": "Contacts",
+          "display": "link",
+          "linkLabel": "View",
+          "format": "normal"
+        }
+      ]
+    },
+    {
+      "sectionLabel": "Community",
+      "displayType": "data",
+      "displayFields": [
+        {
+          "featureServiceId": "3",
+          "valueField": "POL_NAME1",
+          "label": "Community",
+          "display": "keyValue",
+          "format": "normal",
+          "tooltip": "Community tooltip"
+        },
+        {
+          "featureServiceId": "3",
+          "valueField": "Class",
+          "label": "CRS Class",
+          "display": "keyValue",
+          "format": "normal"
+        },
+        {
+          "featureServiceId": "3",
+          "valueField": "F__Discount",
+          "label": "Policy Discount %",
+          "display": "keyValue",
+          "format": "normal"
+        },
+        {
+          "featureServiceId": "3",
+          "valueField": "CID",
+          "label": "CID",
+          "display": "keyValue",
+          "format": "normal"
+        },
+        {
+          "featureServiceId": "3",
+          "valueField": "FIS_url",
+          "label": "Flood Insurance Study",
+          "display": "link",
+          "linkLabel": "View",
+          "format": "normal"
+        }
+      ]
+    },
+    {
+      "sectionLabel": "Structure Info",
+      "displayType": "flood3dCard",
+      "displayFields": [
+        {
+          "featureServiceId": "7",
+          "valueField": "value",
+          "label": "Approximate Elevation (ft)",
+          "display": "keyValue",
+          "format": "normal"
+        }
+      ],
+      "flood3dCard": {
+        "featureServiceId": "6",
+        "lagField": "LAG",
+        "wseField": "WSE_1pct",
+        "noResultMessage": "No structure information was found at this location.  The structure data used by VFRIS is updated periodically but does not include all structures in the Commonwealth",
+        "nullWSEMessage": "Flood elevation data unavailable at this structure",
+        "WSELessThanLAGMessage": "The lowest adjacent grade (LAG) for this structure has <value> ft of freeboard in a 1% annual chance flood",
+        "WSEGreaterThanLAGMessage": "The lowest adjacent grade (LAG) for this structure is flooded by a depth of <value> ft in a 1% annual chance flood"
+      }
+    },
+    {
+      "sectionLabel": "Watershed",
+      "displayType": "data",
+      "displayFields": [
+        {
+          "featureServiceId": "4",
+          "valueField": "GNIS_Name",
+          "label": "Stream",
+          "display": "keyValue",
+          "format": "normal"
+        },
+        {
+          "featureServiceId": "5",
+          "valueField": "huc8",
+          "label": "Watershed (HUC8)",
+          "display": "keyValue",
+          "format": "normal"
+        }
+      ]
+    }
+  ]
+}
