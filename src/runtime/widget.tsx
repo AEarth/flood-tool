@@ -809,43 +809,55 @@ const Widget = (props: AllWidgetProps<IMConfig>): React.ReactElement => {
       const dataResult = getDataResult(flood3dCard.featureServiceId);
       if (dataResult?.data?.features.length > 0) {
         dataResult?.data?.features.map((feature) => {
+
           if (
             feature.attributes[flood3dCard.wseField] != "" &&
             feature.attributes[flood3dCard.wseField] != null
           ) {
+
+            const wse = feature.attributes[flood3dCard.wseField].toFixed(1).toString();
+            const lag = feature.attributes[flood3dCard.lagField].toFixed(1).toString();
+            const hag = feature.attributes[flood3dCard.hagField].toFixed(1).toString();
+            console.log(wse, lag, hag)
+
             if (
               feature.attributes[flood3dCard.lagField] >
               feature.attributes[flood3dCard.wseField]
             ) {
-              const val = (
+              const freeboard = (
                 feature.attributes[flood3dCard.lagField] -
                 feature.attributes[flood3dCard.wseField]
               )
                 .toFixed(1)
                 .toString();
-              message = flood3dCard.WSELessThanLAGMessage.replace(
-                "<value>",
-                val
-              );
+              message = flood3dCard.WSELessThanLAGMessage
+              .replace("<freeboard>", freeboard)
+              .replace("<lag>", lag)
+              .replace("<hag>", hag)
+              .replace("<wse>", wse);
+
               waterElevation =
                 feature.attributes[flood3dCard.wseField] -
                 feature.attributes[flood3dCard.lagField];
+                // freeboard available so show3DModel = false
             }
 
             if (
               feature.attributes[flood3dCard.lagField] <
               feature.attributes[flood3dCard.wseField]
             ) {
-              const val = (
+              const depth = (
                 feature.attributes[flood3dCard.wseField] -
                 feature.attributes[flood3dCard.lagField]
               )
                 .toFixed(1)
                 .toString();
-              message = flood3dCard.WSEGreaterThanLAGMessage.replace(
-                "<value>",
-                val
-              );
+              message = flood3dCard.WSEGreaterThanLAGMessage
+              .replace("<depth>", depth)
+              .replace("<lag>", lag)
+              .replace("<hag>", hag)
+              .replace("<wse>", wse);
+              
               waterElevation =
                 feature.attributes[flood3dCard.wseField] -
                 feature.attributes[flood3dCard.lagField];

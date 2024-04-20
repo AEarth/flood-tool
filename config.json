@@ -51,7 +51,7 @@
       "masterService": false
     },
     {
-      "featureServer": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/4",
+      "featureServer": "https://casdsis.dcr.virginia.gov/arcgis/rest/services/AGOL/VFRIS_HUC8/MapServer/0",
       "buffer": 0,
       "buffer_units": "feet",
       "featureServiceId": "5",
@@ -247,13 +247,13 @@
       ]
     },
     {
-      "sectionLabel": "Structure Info",
+      "sectionLabel": "Structure Elevation Data",
       "displayType": "flood3dCard",
       "displayFields": [
         {
           "featureServiceId": "7",
           "valueField": "value",
-          "label": "Approximate Elevation (ft)",
+          "label": "Ground Elevation at Query (ft)",
           "display": "keyValue",
           "format": "normal"
         }
@@ -262,10 +262,11 @@
         "featureServiceId": "6",
         "lagField": "LAG",
         "wseField": "WSE_1pct",
+        "hagField": "HAG",
         "noResultMessage": "No structure information was found at this location.  The structure data used by VFRIS is updated periodically but does not include all structures in the Commonwealth",
         "nullWSEMessage": "Flood elevation data unavailable at this structure",
-        "WSELessThanLAGMessage": "The lowest adjacent grade (LAG) for this structure has <value> ft of freeboard in a 1% annual chance flood",
-        "WSEGreaterThanLAGMessage": "The lowest adjacent grade (LAG) for this structure is flooded by a depth of <value> ft in a 1% annual chance flood"
+        "WSELessThanLAGMessage": "Structure HAG: <hag> ft   LAG: <lag> ft \n Nearest 1% WSE: <wse> ft   Structure Freeboard: <freeboard> ft",
+        "WSEGreaterThanLAGMessage": "Structure HAG: <hag> ft   LAG: <lag> ft. 1% WSE: <wse> ft \n Structure LAG  is flooded by <depth> ft in a 1% annual chance flood"
       }
     },
     {

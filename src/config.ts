@@ -32,6 +32,7 @@ export interface RiskCard {
 export interface Flood3dCard {
   featureServiceId: string;
   lagField: string;
+  hagField: string;
   wseField: string;
   noResultMessage: string;
   nullWSEMessage: string;

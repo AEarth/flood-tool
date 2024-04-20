@@ -92,7 +92,7 @@ export function getModalStyle(theme: IMThemeVariables): SerializedStyles {
     .modal-content{
       width: auto;
       background-color: white;
-      hight:auto;
+      height:auto;
       border: none;
       box-shadow: unset;
       border-radius: 10px;
@@ -109,7 +109,7 @@ export function getModalStyle(theme: IMThemeVariables): SerializedStyles {
     }
     &.modal-dialog{
       width: 70%;
-      hight:70%;
+      height:70%;
       margin: auto;
       position: relative;
       top: 50%;
@@ -137,7 +137,7 @@ export function getModalStyle(theme: IMThemeVariables): SerializedStyles {
 export function get3dStyle(theme: IMThemeVariables): SerializedStyles {
   return css`
   .flood-3d {
-    hight:600px;
+    height:600px;
     width:100%;
   }
   `
