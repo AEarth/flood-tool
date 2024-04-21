@@ -3,3 +3,9 @@
 - keep in mind  when changing the search geocoding service you must also update the flood tool data source 
 - you must set the zoom in the map
 TODO - Add more configuration info here
+
+AK TODO - 
+    completed - fix HUC8 endpoint (legacy shapefile source causing advanced querying error)
+
+Issue Note:
+    huc8 endpoint error caused structure info panel to not render

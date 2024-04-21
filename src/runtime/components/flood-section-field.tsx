@@ -23,7 +23,12 @@ const getColor = (floodType: 'high' | 'medium' | 'low' | 'none'): string => {
   }
 }
 
-
+function convertToTitleCase(str) {
+  if (!str) {
+      return ""
+  }
+  return str.toLowerCase().replace(/\b\w/g, s => s.toUpperCase());
+}
 
 export interface FloodSectionFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   dataResult: FloodData,
@@ -126,6 +131,17 @@ export const FloodSectionFieldComponent = React.forwardRef((props: FloodSectionF
                   displayField.format == "normal" &&
                   <span> {feature.attributes[displayField.valueField]} </span>
                 }
+
+                {
+                  displayField.display == 'keyValuePair' &&
+                  displayField.format == "normal" &&
+                    <span>
+                      {feature.attributes[displayField.valueField]}
+                      {feature.attributes[displayField.valueField2] ? ` (${convertToTitleCase(feature.attributes[displayField.valueField2])})` : ''}
+                    </span>
+                }
+
+
             </div>
           )
         })

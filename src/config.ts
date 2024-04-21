@@ -54,7 +54,8 @@ export interface DisplayField {
   staticValue?: string; // when static value is available valueField value will be ignored
   actionValue?: "open3dModel"; // those custom actions need to be implemented and handled in the code. Otherwise no action will be triggered.
   valueField?: string;
-  display: "keyValue" | "link" | "linkReference";
+  valueField2?: string;
+  display: "keyValue" | "link" | "linkReference" | 'keyValuePair';
   format: "normal" | "date";
   linkLabel?: string;
   tooltip?: string;

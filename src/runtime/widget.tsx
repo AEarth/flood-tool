@@ -836,6 +836,8 @@ const Widget = (props: AllWidgetProps<IMConfig>): React.ReactElement => {
               .replace("<hag>", hag)
               .replace("<wse>", wse);
 
+              console.log(message)
+
               waterElevation =
                 feature.attributes[flood3dCard.wseField] -
                 feature.attributes[flood3dCard.lagField];
@@ -858,10 +860,13 @@ const Widget = (props: AllWidgetProps<IMConfig>): React.ReactElement => {
               .replace("<hag>", hag)
               .replace("<wse>", wse);
               
+              console.log(message)
+              
               waterElevation =
                 feature.attributes[flood3dCard.wseField] -
                 feature.attributes[flood3dCard.lagField];
               show3DModel = true;
+              console.log("show3D model hit")
             }
           } else {
             message = flood3dCard.nullWSEMessage;
@@ -880,6 +885,9 @@ const Widget = (props: AllWidgetProps<IMConfig>): React.ReactElement => {
       waterElevation: waterElevation,
       show3DModel: show3DModel,
     };
+
+    console.log(flood3dData)
+    
     return flood3dData;
   };
 

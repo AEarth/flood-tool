@@ -3,7 +3,7 @@
   "showLatLong": true,
   "restEndPoints": [
     {
-      "featureServer": "https://dsfmportal.dcr.virginia.gov/server/rest/services/Floodplains/Flood_Hazard_Layers/MapServer/1",
+      "featureServer": "https://dsfmportal.dcr.virginia.gov/server/rest/services/Floodplains/NFHL_Layers/MapServer/27",
       "buffer": 0,
       "buffer_units": "feet",
       "featureServiceId": "1",
@@ -40,7 +40,7 @@
     },
     {
       "featureServer": "https://dsfmportal.dcr.virginia.gov/server/rest/services/EnvironmentalRef/NHD_Flowlines/MapServer/1",
-      "buffer": 0,
+      "buffer": 1000,
       "buffer_units": "feet",
       "featureServiceId": "4",
       "orderByField": [
@@ -51,7 +51,7 @@
       "masterService": false
     },
     {
-      "featureServer": "https://casdsis.dcr.virginia.gov/arcgis/rest/services/AGOL/VFRIS_HUC8/MapServer/0",
+      "featureServer": "https://casdsis.dcr.virginia.gov/arcgis/rest/services/VFRIS2/HUC8/MapServer/0",
       "buffer": 0,
       "buffer_units": "feet",
       "featureServiceId": "5",
@@ -97,7 +97,7 @@
           "linkUrl": "https://www.fema.gov/glossary/flood-zones"
         },
         {
-          "featureServiceId": "1",
+          "featureServiceId":"1",
           "indicatorField": "Legend",
           "indicatorValues": [
             "Area with Reduced Risk Due to Levee"
@@ -176,6 +176,14 @@
       "displayType": "data",
       "displayFields": [
         {
+          "featureServiceId": "1",
+          "valueField": "FLD_ZONE",
+          "valueField2": "ZONE_SUBTY",
+          "label": "Flood Zone",
+          "display": "keyValuePair",
+          "format": "normal"
+        },
+        {
           "featureServiceId": "2",
           "valueField": "FIRM_PAN",
           "label": "FEMA's Flood Map",
@@ -253,7 +261,7 @@
         {
           "featureServiceId": "7",
           "valueField": "value",
-          "label": "Ground Elevation at Query (ft)",
+          "label": "Ground Elevation at Pin (ft)",
           "display": "keyValue",
           "format": "normal"
         }
@@ -275,14 +283,14 @@
       "displayFields": [
         {
           "featureServiceId": "4",
-          "valueField": "GNIS_Name",
+          "valueField": "gnis_name",
           "label": "Stream",
           "display": "keyValue",
           "format": "normal"
         },
         {
           "featureServiceId": "5",
-          "valueField": "huc8",
+          "valueField": "HUC8",
           "label": "Watershed (HUC8)",
           "display": "keyValue",
           "format": "normal"
