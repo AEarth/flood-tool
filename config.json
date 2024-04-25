@@ -77,7 +77,17 @@
     {
       "imageServer": "https://casdsis.dcr.virginia.gov/arcgis/rest/services/elevation/DEM_10m/ImageServer",
       "featureServiceId": "7"
+    },
+    {
+      "imageServer": "https://casdsis.dcr.virginia.gov/arcgis/rest/services/Floodplains/Depth_01pct/ImageServer",
+      "featureServiceId": "8"
+    },
+    {
+      "imageServer": "https://casdsis.dcr.virginia.gov/arcgis/rest/services/Floodplains/WSE_01pct/ImageServer",
+      "featureServiceId": "9"
     }
+
+
   ],
   "displaySections": [
     {
@@ -254,17 +264,41 @@
         }
       ]
     },
+
+  {
+      "sectionLabel": "Gridded Data",
+      "displayType": "data",
+      "displayFields": [
+      {
+        "featureServiceId": "7",
+        "valueField": "value",
+        "label": "Ground Elevation at Pin",
+        "display": "keyValue",
+        "format": "float"
+      },
+      {
+        "featureServiceId": "8",
+        "valueField": "value",
+        "label": "1% Depth",
+        "display": "keyValue",
+        "format": "float"
+      },
+      {
+        "featureServiceId": "9",
+        "valueField": "value",
+        "label": "1% WSE",
+        "display": "keyValue",
+        "format": "float"
+      }
+    ]
+  },
+
     {
       "sectionLabel": "Structure Elevation Data",
+      "sectionLabelHelpPage": "Structure-Analysis-Information",
+      "helpPageType": "internal",
       "displayType": "flood3dCard",
       "displayFields": [
-        {
-          "featureServiceId": "7",
-          "valueField": "value",
-          "label": "Ground Elevation at Pin (ft)",
-          "display": "keyValue",
-          "format": "normal"
-        }
       ],
       "flood3dCard": {
         "featureServiceId": "6",
@@ -277,6 +311,7 @@
         "WSEGreaterThanLAGMessage": "Structure HAG: <hag> ft   LAG: <lag> ft. 1% WSE: <wse> ft \n Structure LAG  is flooded by <depth> ft in a 1% annual chance flood"
       }
     },
+
     {
       "sectionLabel": "Watershed",
       "displayType": "data",

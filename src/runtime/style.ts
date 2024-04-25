@@ -12,14 +12,21 @@ export function getStyle(theme: IMThemeVariables): SerializedStyles {
       
     }
 
+    .field-value-center {
+      text-align:center;
+    }
+
+
     .flood-tool {
       overflow:auto;
    }
 
     .info-card-header {
-      padding: 10px;
+      padding: 5px;
+      text-align: center;
       background-color: ${theme.colors.secondary}
     }
+    
     .flood-loader {
       padding: 80px 0;
       text-align: center;
@@ -47,15 +54,15 @@ export function getModalStyle(theme: IMThemeVariables): SerializedStyles {
   return css`
   .section-wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   .img-message {
     align-self: flex-start;
-    margin-right:20px;
+    // margin-right:20px;
   }
   .img-btn {
-    align-self: flex-end;
-    margin-left:auto;
+    align-self: center;
+    //margin-left:auto;
   }
 
   .img-btn img {

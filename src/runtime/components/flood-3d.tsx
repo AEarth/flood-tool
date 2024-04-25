@@ -173,7 +173,7 @@ React.useEffect(() => {
             //width: 50,    // diameter of the object from east to west in meters
             height: 6,  // height of object in meters
             //depth: 15,   // diameter of the object from north to south in meters
-            resource: { href: "https://consappsrpt.dcr.virginia.gov/DCR_models/small_house_3kb.glb" }
+            resource: { href: "https://casdsistest.dcr.virginia.gov/DCR_models/small_house_3kb.glb" }
         }]
     };
 
@@ -182,7 +182,7 @@ React.useEffect(() => {
         symbolLayers: [{
             type: "object",  // autocasts as new ObjectSymbol3DLayer()
             height: 6,  // height of object in met3ers
-            resource: { href: "https://consappsrpt.dcr.virginia.gov/DCR_models/generic_business_building_small.glb" }
+            resource: { href: "https://casdsistest.dcr.virginia.gov/DCR_models/generic_business_building_small.glb" }
         }]
     };
 
@@ -191,7 +191,7 @@ React.useEffect(() => {
         symbolLayers: [{
             type: "object",  // autocasts as new ObjectSymbol3DLayer()
             height: 6,  // height of object in meters
-            resource: { href: "https://consappsrpt.dcr.virginia.gov/DCR_models/brick_home.glb" }
+            resource: { href: "https://casdsistest.dcr.virginia.gov/DCR_models/brick_home.glb" }
         }]
     };
 
@@ -200,7 +200,7 @@ React.useEffect(() => {
         symbolLayers: [{
             type: "object",  // autocasts as new ObjectSymbol3DLayer()
             height: 7.5,  // height of object in meters
-            resource: { href: "https://consappsrpt.dcr.virginia.gov/DCR_models/downtown_city_building_04.glb" }
+            resource: { href: "https://casdsistest.dcr.virginia.gov/DCR_models/downtown_city_building_04.glb" }
         }]
     };
 

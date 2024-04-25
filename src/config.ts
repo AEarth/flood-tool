@@ -42,6 +42,7 @@ export interface Flood3dCard {
 
 export interface DisplaySection {
   sectionLabel: string;
+  sectionLabelHelpPage?: string;
   displayFields?: ImmutableArray<DisplayField>;
   riskCards?: RiskCard[];
   flood3dCard?: Flood3dCard;
@@ -56,7 +57,7 @@ export interface DisplayField {
   valueField?: string;
   valueField2?: string;
   display: "keyValue" | "link" | "linkReference" | 'keyValuePair';
-  format: "normal" | "date";
+  format: "normal" | "date" | "float";
   linkLabel?: string;
   tooltip?: string;
   linkReference1Label?: string;
@@ -87,6 +88,10 @@ export interface FloodData {
 
 export interface Flood3dData {
   message: string;
+  wse?: string;
+  lag?: string;
+  hag?: string;
+  freeboard?: string;
   waterElevation: number;
   lat: number;
   long: number;

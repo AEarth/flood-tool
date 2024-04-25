@@ -76,6 +76,7 @@ export const FloodSectionFieldComponent = React.forwardRef((props: FloodSectionF
     <div
       className={classNames('flood-section-field')}
       css={cssStyle}
+      
     >
 
       {!displayField.staticValue ?
@@ -84,12 +85,14 @@ export const FloodSectionFieldComponent = React.forwardRef((props: FloodSectionF
           return (
             <div className='info-card-attribute'>
               <span className='font-weight-bold'>{displayField.label}: </span>
+                
                 {
                   displayField.display == 'link' && isValidHttpUrl(feature.attributes[displayField.valueField])  &&
                   <a className='info-card-link' href={feature.attributes[displayField.valueField]} title={displayField.label} target='_blank' >
                     {displayField.linkLabel ? displayField.linkLabel :
                       displayField.label}</a>
                 }
+
                 {
                   displayField.display == 'linkReference' &&
                   displayField.linkReference1Label && displayField.linkReference1Url &&
@@ -128,8 +131,19 @@ export const FloodSectionFieldComponent = React.forwardRef((props: FloodSectionF
                 }
                 {
                   displayField.display == 'keyValue' &&
-                  displayField.format == "normal" &&
+                  displayField.format == "normal" && 
+
                   <span> {feature.attributes[displayField.valueField]} </span>
+                }
+
+                {
+                  displayField.display == 'keyValue' &&
+                  displayField.format == "float"
+                    ? feature.attributes[displayField.valueField] == "NoData"
+
+                      ? <span> No gridded data at location</span>
+                      :<span> {Number(feature.attributes[displayField.valueField]).toFixed(1)} ft </span>
+                    : null
                 }
 
                 {

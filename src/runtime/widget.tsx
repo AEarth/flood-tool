@@ -36,7 +36,7 @@ import Query from "esri/rest/support/Query";
 import Card3D from "./components/card-3d";
 import { FloodWidgetContext } from "./widget-context";
 import geometryEngine from "esri/geometry/geometryEngine";
-import { Loading, hooks } from "jimu-ui";
+import { Loading, hooks, Icon, Link } from "jimu-ui";
 import { RiskCardComponent } from "./components/risk-card";
 import FeatureSet from "esri/rest/support/FeatureSet";
 import { ExternalViewComponent } from "./components/external-view";
@@ -796,6 +796,9 @@ const Widget = (props: AllWidgetProps<IMConfig>): React.ReactElement => {
   const getFlood3dData = () => {
     let flood3dCard: Flood3dCard = null;
     let message = "";
+    let wse = "";
+    let lag = "";
+    let hag = "";
     let waterElevation = 0;
     let show3DModel = false;
     displaySections.map((displaySection) => {
@@ -810,15 +813,19 @@ const Widget = (props: AllWidgetProps<IMConfig>): React.ReactElement => {
       if (dataResult?.data?.features.length > 0) {
         dataResult?.data?.features.map((feature) => {
 
+          hag = feature.attributes[flood3dCard.hagField].toFixed(1).toString();
+          lag = feature.attributes[flood3dCard.lagField].toFixed(1).toString();
+
+          console.log('lag, hag:', lag, hag)
+
           if (
             feature.attributes[flood3dCard.wseField] != "" &&
             feature.attributes[flood3dCard.wseField] != null
           ) {
 
-            const wse = feature.attributes[flood3dCard.wseField].toFixed(1).toString();
-            const lag = feature.attributes[flood3dCard.lagField].toFixed(1).toString();
-            const hag = feature.attributes[flood3dCard.hagField].toFixed(1).toString();
-            console.log(wse, lag, hag)
+            wse = feature.attributes[flood3dCard.wseField].toFixed(1).toString();
+            
+            console.log('wse:', wse)
 
             if (
               feature.attributes[flood3dCard.lagField] >
@@ -879,6 +886,9 @@ const Widget = (props: AllWidgetProps<IMConfig>): React.ReactElement => {
 
     const flood3dData: Flood3dData = {
       message: message,
+      wse: wse,
+      lag: lag,
+      hag: hag,
       address: mapAddress.current,
       lat: currentMapPoint?.latitude,
       long: currentMapPoint?.longitude,
@@ -886,8 +896,6 @@ const Widget = (props: AllWidgetProps<IMConfig>): React.ReactElement => {
       show3DModel: show3DModel,
     };
 
-    console.log(flood3dData)
-    
     return flood3dData;
   };
 
@@ -912,12 +920,33 @@ const Widget = (props: AllWidgetProps<IMConfig>): React.ReactElement => {
             <div>
               {displaySections.map((displaySection) => {
                 const flood3dData = getFlood3dData();
+                const infoIcon = require('./assets/info-icon.svg')
+                var current_url = window.location.href;
+                console.log('current_url', current_url)
+                var base_url = current_url.split('page')[0];
+                console.log('base_url', base_url)
                 return (
                   <div>
                     {displaySection.sectionLabel != "" ? (
-                      <h3 className="info-card-header">
+                      <h4 className="info-card-header">
                         {displaySection.sectionLabel}
-                      </h3>
+
+                        {displaySection.sectionLabelHelpPage && (
+                          <Link 
+                          // local: /experience/4/page/
+                          // prod ?page=
+                          to = {`?page=${displaySection.sectionLabelHelpPage}`}
+                          type = "link"
+                          replace = "true"
+                          target = "_self"
+                          >
+                            <Icon icon={infoIcon} color="red" width="20px" height="20px"/> 
+
+                            {/* <img src={require('./assets/info-icon.svg')} height={24} /> */}
+                          </Link>
+
+                        )}
+                      </h4>
                     ) : (
                       ""
                     )}

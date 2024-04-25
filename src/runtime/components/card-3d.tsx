@@ -30,18 +30,55 @@ function Card3D() {
       
       return (
             <div css={getModalStyle(theme)}>
-                  <Card className='info-card-feature'>
+                  <Card>
                         <div>
-                              <div className='section-wrapper'>
-                                    <div className='img-message'>                                       
-                                          {flood3dData.message}
+                              {flood3dData.lag && (
+                              <div>
+                                    <div> 
+                                          <b> Building Footprint Elevations: </b>
+                                          <br />
+                                          <span className='field-value-center'>      
+                                                <b>HAG: </b>{flood3dData.hag} ft &emsp; <b>LAG: </b>{flood3dData.lag} ft
+                                          </span>
                                     </div>
+                                    <hr></hr>
+                              </div>
+                              )}
+
+                              <span>
+                              {flood3dData.wse && (
+                                    <div>
+                                          <b>Nearest WSE: </b> 
+                                                {flood3dData.wse} ft (1% AEP)    
+                                    </div>
+                              )}
+            
+                              {flood3dData.lag - flood3dData.wse > 0 && (
+                                    <span>
+                                         <b>Structure Freeboard: </b>
+                                                {(flood3dData.lag - flood3dData.wse).toFixed(1)} ft of freeboard
+                                    </span>
+                              )}
+                              
+                              {flood3dData.wse - flood3dData.lag > 0 && (
+                                    <span>
+                                         <b>Flood Depth at LAG: </b>
+                                                {(flood3dData.wse - flood3dData.lag).toFixed(1)} ft of depth
+                                    </span>
+                              )}
+
+                              </span>
+
+                              
+                                          {/* {flood3dData.message} */}
+                                    
                                     {flood3dData.show3DModel && 
                                           <div className='img-btn'>
+                                                <hr></hr>
                                                 <img src={require('./../assets/3d-switch.png')} height={60} onClick={showHideDialog} />
                                           </div>
                                     }
-                              </div>
+                                    
                               {showDialog &&
 
                                     <Modal isOpen centered css={getModalStyle(theme)}>
